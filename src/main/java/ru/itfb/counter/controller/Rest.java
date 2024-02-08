@@ -20,7 +20,6 @@ public class Rest {
     public int counter_4 = 0;
     public volatile int counter_5 = 0;
     public AtomicInteger count_4_a = new AtomicInteger(0);
-    int temp = 0;
 
     private static final String template = "Count: %d";
     private Conter conter = new Conter();
@@ -58,8 +57,8 @@ public class Rest {
 
     @GetMapping("/cnt")
     public ResponseEntity<String> getCountService() {
-        return ResponseEntity.ok("NonSync: " + counter_2 + "   vol: " + counter_3 + " AtomicNV: "+count_2_a +";\n" +
-                "Sync: " + counter_4 + "   vol: " + counter_5 + " AtomicNV: "+count_4_a +" \n" +
+        return ResponseEntity.ok("NonSync: " + counter_2 + "   vol: " + counter_3 + " AtomicNV: " + count_2_a + ";\n" +
+                "Sync: " + counter_4 + "   vol: " + counter_5 + " AtomicNV: " + count_4_a + " \n" +
                 "NSyncNvRead: " + conter.getCount());
     }
 
@@ -72,8 +71,6 @@ public class Rest {
         counter_2++;
         counter_3++;
         count_2_a.getAndIncrement();
-        temp = counter_2;
-        temp = counter_3;
     }
 
     private synchronized void syncIncrementCnt() {
@@ -87,8 +84,6 @@ public class Rest {
         count_4_a.getAndIncrement();
         counter_4++;
         counter_5++;
-        temp = counter_4;
-        temp = counter_5;
     }
 
     private Conter increment() {
@@ -98,12 +93,11 @@ public class Rest {
             throw new RuntimeException(e);
         }
         conter.intcrementCount();
-        temp = conter.getCount();
 //        System.out.println(conter.getCount());
         return conter;
     }
 
-    private void testCnt(){
+    private void testCnt() {
         increment();
         incrementCnt();
         syncIncrementCnt();

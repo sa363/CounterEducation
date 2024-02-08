@@ -1,0 +1,23 @@
+Jmeter NofThreads 1000
+
+	NonSync: 996   vol: 998 AtomicNV: 1000;
+	Sync: 1000   vol: 1000 AtomicNV: 1000
+	NSyncNvRead: 995
+
+	NonSync: 1000   vol: 1000 AtomicNV: 1000;
+	Sync: 1000   vol: 1000 AtomicNV: 1000
+	NSyncNvRead: 1000
+
+Jmeter NofThreads 10000
+
+	NonSync: 8293   vol: 8293 AtomicNV: 8293;
+	Sync: 8293   vol: 8293 AtomicNV: 8293
+	NSyncNvRead: 8293
+
+	NonSync: 8279   vol: 8293 AtomicNV: 8298;
+	Sync: 8298   vol: 8298 AtomicNV: 8298
+	NSyncNvRead: 8273
+
+	NonSync: 8287   vol: 8288 AtomicNV: 8291;
+	Sync: 8291   vol: 8291 AtomicNV: 8291
+	NSyncNvRead: 8285
