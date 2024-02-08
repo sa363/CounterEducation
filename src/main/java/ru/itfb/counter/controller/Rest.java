@@ -29,7 +29,13 @@ public class Rest {
     }
 
     private Conter increment() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         conter.intcrementCount();
+        System.out.println(conter.getCount());
         return conter;
     }
 }

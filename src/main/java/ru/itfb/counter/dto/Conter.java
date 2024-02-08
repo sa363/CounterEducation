@@ -2,7 +2,7 @@ package ru.itfb.counter.dto;
 
 
 public class Conter {
-    private int count;
+    private volatile int count;
 
     public Conter() {
         this.count = 1;
