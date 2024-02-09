@@ -1,6 +1,12 @@
+/*
+ * Copyright (C) 2024 ITFB Group. - All Rights Reserved
+ *
+ * Unauthorized copying or redistribution of this file in source and binary forms via any medium
+ * is strictly prohibited.
+ */
+
 package ru.itfb.counter.controller;
 
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +26,8 @@ public class Rest {
     public int counter_4 = 0;
     public volatile int counter_5 = 0;
     public AtomicInteger count_4_a = new AtomicInteger(0);
-
-    private static final String template = "Count: %d";
-    private Conter conter = new Conter();
-    private ConterService service;
+    private final Conter conter = new Conter();
+    private final ConterService service;
 
     public Rest(ConterService service) {
         this.service = service;
@@ -69,7 +73,7 @@ public class Rest {
             throw new RuntimeException(e);
         }
         counter_2++;
-        counter_3++;
+        counter_3 += 1;
         count_2_a.getAndIncrement();
     }
 
