@@ -73,8 +73,12 @@ public class Rest {
             throw new RuntimeException(e);
         }
         counter_2++;
-        counter_3 += 1;
+        volatileIncrementCounter_3();
         count_2_a.getAndIncrement();
+    }
+
+    private synchronized void volatileIncrementCounter_3() {
+        counter_3++;
     }
 
     private synchronized void syncIncrementCnt() {
