@@ -24,8 +24,8 @@ public class Conter {
     }
 
     /**
-     * Задание счетчика
-     * @param count
+     *
+     * @param count Description Задание счетчика
      *
      */
     public void setCount(int count) {

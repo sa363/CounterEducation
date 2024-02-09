@@ -6,7 +6,7 @@ import ru.itfb.counter.dto.Conter;
 @Service
 public class ConterService {
 
-    private Conter conter = new Conter();
+    private final Conter conter = new Conter();
 
     public Conter getConter() {
         conter.intcrementCount();
